@@ -4,11 +4,15 @@ let messaggio = "Premi Play per iniziare!";
 let play = false;
 let clickX = null;
 let clickY = null;
-let lastType = ""; // "cross"
+let lastType = ""; 
+let feedbackDiv;
 
 function setup() {
   createCanvas(600, 600);
-  background("#0d1b2a"); // Sfondo blu notte
+  background("#0d1b2a");
+
+  
+  feedbackDiv = select("#feedback");
 }
 
 function draw() {
@@ -17,7 +21,7 @@ function draw() {
   let centroX = width / 2;
   let centroY = height / 2;
 
-  // Bersaglio: rosso e bianco alternato (come originale)
+ 
   fill("#f45");
   circle(centroX, centroY, diametro);
   fill("#fff");
@@ -30,6 +34,8 @@ function draw() {
   circle(centroX, centroY, diametro - 300);
   fill("#fff");
   circle(centroX, centroY, diametro - 360);
+  fill("#f45");
+  circle(centroX, centroY, diametro - 440); 
 
   // Punteggio
   fill("#e0e1dd");
@@ -37,12 +43,9 @@ function draw() {
   textAlign(CENTER, CENTER);
   text(`Punti: ${punti}`, width / 2, 30);
 
-  // Messaggio centrato ma più in basso
-  textSize(18);
-  fill("#e0e1dd");
-  text(messaggio, width / 2, height - 80); // Abbassato da 50 a 80
+  feedbackDiv.html(messaggio);
 
-  // Disegna la X nera dove hai cliccato
+  
   if (clickX !== null && clickY !== null) {
     if (lastType === "cross") {
       stroke("black");
@@ -86,6 +89,7 @@ function mouseClicked() {
   clickX = mouseX;
   clickY = mouseY;
 }
+
 
 let btn = document.querySelector("#play");
 btn.addEventListener("click", function () {
