@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #0d1b2a; /* Blu notte */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e1dd; /* Testo chiaro */
+    padding-top: 50px;
+}
+
+header h1 {
+    font-size: 42px;
+    font-weight: 600;
+    color: #e0e1dd; /* Testo chiaro */
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+header h1::before {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px auto;
+    background-image: url(../images/icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#play {
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #ffd56b; /* Giallo dorato */
+    color: #0d1b2a;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#play:hover {
+    background-color: #ffca4f; /* Dorato più scuro */
+}
+
